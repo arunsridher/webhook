@@ -2,6 +2,7 @@ const prettyjson = require("prettyjson");
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
+const PORT = process.env.PORT || 5000;
 
 const options = {
   noColor: true,
@@ -34,8 +35,6 @@ app.get("/", (req, res) => {
   return res.json(message);
 });
 
-const server = app.listen(5000, () => {
-  let host = server.address().address;
-  let port = server.address().port;
+const server = app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
